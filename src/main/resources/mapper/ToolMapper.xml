@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sa.tws.mapper.ToolMapper">
+    <select id="findAll" resultType="Tool">
+        select * from Tool
+    </select>
+
+    <select id="findTool" resultType="Tool">
+        select * from Tool where ToolID = #{ToolID}
+    </select>
+
+    <insert id="insertTool">
+        insert into Tool values (#{ToolID}, #{ToolName}, #{ToolType}, #{ToolLocation}, #{ShelfID}, #{ToolNum})
+    </insert>
+
+    <delete id="deleteTool">
+        delete from Tool where ToolID = #{ToolID}
+    </delete>
+
+    <update id="updateToolName">
+        update Tool set ToolName = #{arg1} where ToolID = #{arg0}
+    </update>
+
+    <update id="updateToolLocation">
+        update Tool set ToolLocation = #{arg1} where ToolID = #{arg0}
+    </update>
+
+    <update id="updateToolNum">
+        update Tool set ToolNum = #{arg1} where ToolID = #{arg0}
+    </update>
+
+    <update id="updateShelfID">
+        update Tool set ShelfID = #{arg1} where ToolID = #{arg0}
+    </update>
+</mapper>

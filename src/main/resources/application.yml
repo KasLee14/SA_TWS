@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql:///tws
+    username: root
+    password: 686868
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml #Mapper映射文件路径
+  type-aliases-package: com.sa.tws.domain #别名

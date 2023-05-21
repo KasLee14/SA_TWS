@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sa.tws.mapper.UserMapper">
+    <select id="findAll" resultType="User">
+        select * from User
+    </select>
+
+    <select id="findUser" resultType="User">
+        select * from User where UserID = #{UserID}
+    </select>
+
+    <insert id="insertUser">
+        insert into User values (#{UserID}, #{UserName}, #{UserPassword}, #{UserType}, #{UserDepartment})
+    </insert>
+
+    <delete id="deleteUser">
+        delete from User where UserID = #{UserID}
+    </delete>
+
+    <update id="updateUserName">
+        update User set UserName = #{arg1} where UserID = #{arg0}
+    </update>
+
+    <update id="updateUserPassword">
+        update User set UserPassword = #{arg1} where UserID = #{arg0}
+    </update>
+
+    <update id="updateUserDepartment">
+        update User set UserDepartment = #{arg1} where UserID = #{arg0}
+    </update>
+
+
+</mapper>
