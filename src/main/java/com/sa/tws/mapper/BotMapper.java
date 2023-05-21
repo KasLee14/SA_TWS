@@ -9,9 +9,9 @@ import java.util.List;
 @Mapper
 public interface BotMapper {
 
-    public List<User> findAll(); //查询全部
+    public List<Bot> findAll(); //查询全部
 
-    public List<User> findBot(String BotID); //查询单一
+    public List<Bot> findBot(String BotID); //查询单一
 
     public void insertBot(Bot bot); //添加用户
 
