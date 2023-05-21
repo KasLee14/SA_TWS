@@ -5,16 +5,16 @@ public class Tool {
     public String ToolID;
     public String ToolName;
     public String ToolType;
-    public String ToolLocation;
+    public String DepositoryID;
     public String ShelfID;
 
     public int ToolNum;
 
-    public Tool(String toolID, String toolName, String toolType, String toolLocation, String shelfID, int toolNum) {
+    public Tool(String toolID, String toolName, String toolType, String DepositoryID, String shelfID, int toolNum) {
         ToolID = toolID;
         ToolName = toolName;
         ToolType = toolType;
-        ToolLocation = toolLocation;
+        DepositoryID = DepositoryID;
         ShelfID = shelfID;
         ToolNum = toolNum;
     }
@@ -43,12 +43,12 @@ public class Tool {
         ToolType = toolType;
     }
 
-    public String getToolLocation() {
-        return ToolLocation;
+    public String getDepositoryID() {
+        return DepositoryID;
     }
 
-    public void setToolLocation(String toolLocation) {
-        ToolLocation = toolLocation;
+    public void setDepositoryID(String DepositoryID) {
+        DepositoryID = DepositoryID;
     }
 
     public String getShelfID() {
@@ -73,7 +73,7 @@ public class Tool {
                 "ToolID='" + ToolID + '\'' +
                 ", ToolName='" + ToolName + '\'' +
                 ", ToolType='" + ToolType + '\'' +
-                ", ToolLocation='" + ToolLocation + '\'' +
+                ", DepositoryID='" + DepositoryID + '\'' +
                 ", ShelfID='" + ShelfID + '\'' +
                 ", ToolNum=" + ToolNum +
                 '}';

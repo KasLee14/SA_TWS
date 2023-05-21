@@ -19,7 +19,7 @@ public interface ToolMapper {
 
     public void updateToolName(String ToolID, String ToolName);
     public void updateToolNum(String ToolID, int ToolNum);
-    public void updateToolLocation(String ToolID, String ToolLocation);
+    public void updateDepositoryID(String ToolID, String DepositoryID);
     public void updateShelfID(String ToolID, String ShelfID);
 
 }

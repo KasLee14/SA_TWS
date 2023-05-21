@@ -10,7 +10,7 @@
     </select>
 
     <insert id="insertTool">
-        insert into Tool values (#{ToolID}, #{ToolName}, #{ToolType}, #{ToolLocation}, #{ShelfID}, #{ToolNum})
+        insert into Tool values (#{ToolID}, #{ToolName}, #{ToolType}, #{DepositoryID}, #{ShelfID}, #{ToolNum})
     </insert>
 
     <delete id="deleteTool">
@@ -21,8 +21,8 @@
         update Tool set ToolName = #{arg1} where ToolID = #{arg0}
     </update>
 
-    <update id="updateToolLocation">
-        update Tool set ToolLocation = #{arg1} where ToolID = #{arg0}
+    <update id="updateDepositoryID">
+        update Tool set DepositoryID = #{arg1} where ToolID = #{arg0}
     </update>
 
     <update id="updateToolNum">

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sa.tws.mapper.ShelfMapper">
+    <select id="findAll" resultType="Shelf">
+        select * from Shelf
+    </select>
+
+    <select id="findShelf" resultType="Shelf">
+        select * from Shelf where ShelfID = #{ShelfID}
+    </select>
+
+    <insert id="insertShelf">
+        insert into Shelf values (#{ShelfID}, #{DepositoryID}, #{Location})
+    </insert>
+
+    <delete id="deleteShelf">
+        delete from Shelf where ShelfID = #{ShelfID}
+    </delete>
+
+    <update id="updateDepositoryID">
+        update Shelf set DepositoryID = #{arg1} where ShelfID = #{arg0}
+    </update>
+
+    <update id="updateLocation">
+        update Shelf set Location = #{arg1} where ShelfID = #{arg0}
+    </update>
+</mapper>

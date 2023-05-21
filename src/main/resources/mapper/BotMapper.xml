@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sa.tws.mapper.BotMapper">
+    <select id="findAll" resultType="Bot">
+        select * from Bot
+    </select>
+
+    <select id="findBot" resultType="Bot">
+        select * from Bot where BotID = #{BotID}
+    </select>
+
+    <insert id="insertBot">
+        insert into Bot values (#{BotID}, #{BotLocation}, #{BotStatus}, #{DepositoryID})
+    </insert>
+
+    <delete id="deleteBot">
+        delete from Bot where BotID = #{BotID}
+    </delete>
+
+    <update id="updateBotLocation">
+        update Bot set BotLocation = #{arg1} where BotID = #{arg0}
+    </update>
+
+    <update id="updateDepositoryID">
+        update Bot set DepositoryID = #{arg1} where BotID = #{arg0}
+    </update>
+
+    <update id="updateBotStatus">
+        update Bot set BotStatus = #{arg1} where BotID = #{arg0}
+    </update>
+
+
+</mapper>
