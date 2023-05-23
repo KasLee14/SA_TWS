@@ -1,7 +1,6 @@
 package com.sa.tws.controller;
 
 import com.sa.tws.domain.Shelf;
-import com.sa.tws.mapper.ShelfMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,31 +10,31 @@ import java.util.List;
 public class ShelfController {
 
     @Autowired
-    private com.sa.tws.mapper.ShelfMapper ShelfMapper;
+    private com.sa.tws.mapper.ShelfMapper shelfMapper;
 
-    @GetMapping("/")
+    @GetMapping("/Shelf/findAll/")
     public List<Shelf> index(){
-        return ShelfMapper.findAll();
+        return shelfMapper.findAll();
     }
 
-    @GetMapping("/{ShelfID}")
+    @GetMapping("/Shelf/findShelf/{ShelfID}")
     public List<Shelf> index(@PathVariable String ShelfID){
-        return ShelfMapper.findShelf(ShelfID);
+        return shelfMapper.findShelf(ShelfID);
     }
 
-    @PostMapping("/")
+    @PostMapping("/Shelf/Update/")
     public void updateShelf(@RequestBody Shelf shelf){
-        ShelfMapper.updateShelf(shelf);
+        shelfMapper.updateShelf(shelf);
     }
 
-    @PostMapping("/")
+    @PostMapping("/Shelf/Insert/")
     public void insert(@RequestBody Shelf Shelf){
-        ShelfMapper.insertShelf(Shelf);
+        shelfMapper.insertShelf(Shelf);
     }
 
-    @DeleteMapping("/{ShelfID}")
+    @DeleteMapping("/Shelf/Delete/{ShelfID}")
     public void delete(@PathVariable String ShelfID){
-        ShelfMapper.deleteShelf(ShelfID);
+        shelfMapper.deleteShelf(ShelfID);
     }
     
 }

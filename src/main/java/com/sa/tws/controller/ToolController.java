@@ -10,30 +10,30 @@ import java.util.List;
 @RestController
 public class ToolController {
     @Autowired
-    private ToolMapper ToolMapper;
+    private ToolMapper toolMapper;
 
-    @GetMapping("/")
+    @GetMapping("/Tool/findAll")
     public List<Tool> index(){
-        return ToolMapper.findAll();
+        return toolMapper.findAll();
     }
 
-    @GetMapping("/{ToolID}")
+    @GetMapping("/Tool/findTool/Shelf{ToolID}")
     public List<Tool> index(@PathVariable String ToolID){
-        return ToolMapper.findTool(ToolID);
+        return toolMapper.findTool(ToolID);
     }
 
-    @PostMapping("/")
+    @PostMapping("/Tool/Update/")
     public void updateTool(@RequestBody Tool Tool){
-        ToolMapper.updateTool(Tool);
+        toolMapper.updateTool(Tool);
     }
 
-    @PostMapping("/")
+    @PostMapping("/Tool/Insert/")
     public void insert(@RequestBody Tool Tool){
-        ToolMapper.insertTool(Tool);
+        toolMapper.insertTool(Tool);
     }
 
-    @DeleteMapping("/{ToolID}")
+    @DeleteMapping("/Tool/Delete/{ToolID}")
     public void delete(@PathVariable String ToolID){
-        ToolMapper.deleteTool(ToolID);
+        toolMapper.deleteTool(ToolID);
     }
 }

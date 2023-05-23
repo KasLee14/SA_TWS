@@ -12,18 +12,18 @@ public class DepositoryController {
     @Autowired
     private com.sa.tws.mapper.DepositoryMapper depositoryMapper;
 
-    @GetMapping("/")
+    @GetMapping("/Depository/findAll/")
     public List<Depository> index(){
         return depositoryMapper.findAll();
     }
 
-    @GetMapping("/{DepositoryID}")
+    @GetMapping("/Depository/findDepository/{DepositoryID}")
     public List<Depository> index(@PathVariable String DepositoryID){
         return depositoryMapper.findDepository(DepositoryID);
     }
 
 
-    @PostMapping("/")
+    @PostMapping("/Depository/Insert/")
     public void insert(@RequestBody Depository depository){
         depositoryMapper.insertDepository(depository);
     }

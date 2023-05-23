@@ -10,30 +10,30 @@ import java.util.List;
 public class RequestController {
 
     @Autowired
-    private com.sa.tws.mapper.RequestMapper RequestMapper;
+    private com.sa.tws.mapper.RequestMapper requestMapper;
 
-    @GetMapping("/")
+    @GetMapping("/Request/findAll/")
     public List<Request> index(){
-        return RequestMapper.findAll();
+        return requestMapper.findAll();
     }
 
-    @GetMapping("/{RequestID}")
+    @GetMapping("/Request/findRequest/{RequestID}")
     public List<Request> index(@PathVariable String RequestID){
-        return RequestMapper.findRequest(RequestID);
+        return requestMapper.findRequest(RequestID);
     }
 
-    @PostMapping("/")
+    @PostMapping("/Request/Update/")
     public void updateRequest(@RequestBody Request request){
-        RequestMapper.updateRequest(request);
+        requestMapper.updateRequest(request);
     }
 
-    @PostMapping("/")
+    @PostMapping("/Request/Insert/")
     public void insert(@RequestBody Request Request){
-        RequestMapper.insertRequest(Request);
+        requestMapper.insertRequest(Request);
     }
 
-    @DeleteMapping("/{RequestID}")
+    @DeleteMapping("/Request/Delete/{RequestID}")
     public void delete(@PathVariable String RequestID){
-        RequestMapper.deleteRequest(RequestID);
+        requestMapper.deleteRequest(RequestID);
     }
 }

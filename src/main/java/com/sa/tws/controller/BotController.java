@@ -10,30 +10,30 @@ import java.util.List;
 public class BotController {
 
     @Autowired
-    private com.sa.tws.mapper.BotMapper BotMapper;
+    private com.sa.tws.mapper.BotMapper botMapper;
 
-    @GetMapping("/")
+    @GetMapping("/Bot/findAll/")
     public List<Bot> index(){
-        return BotMapper.findAll();
+        return botMapper.findAll();
     }
 
-    @GetMapping("/{BotID}")
+    @GetMapping("/Bot/findBot/{BotID}")
     public List<Bot> index(@PathVariable String BotID){
-        return BotMapper.findBot(BotID);
+        return botMapper.findBot(BotID);
     }
 
-    @PostMapping("/")
+    @PostMapping("/Bot/Update/")
     public void updateBot(@RequestBody Bot bot){
-        BotMapper.updateBot(bot);
+        botMapper.updateBot(bot);
     }
 
-    @PostMapping("/")
+    @PostMapping("/Bot/Insert/")
     public void insert(@RequestBody Bot bot){
-        BotMapper.insertBot(bot);
+        botMapper.insertBot(bot);
     }
 
-    @DeleteMapping("/{BotID}")
+    @DeleteMapping("/Bot/Delete{BotID}")
     public void delete(@PathVariable String BotID){
-        BotMapper.deleteBot(BotID);
+        botMapper.deleteBot(BotID);
     }
 }
