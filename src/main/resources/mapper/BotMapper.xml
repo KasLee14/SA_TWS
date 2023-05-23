@@ -10,7 +10,7 @@
     </select>
 
     <insert id="insertBot">
-        insert into Bot values (#{BotID}, #{BotLocation}, #{BotStatus}, #{DepositoryID})
+        insert into Bot values (#{BotID}, #{Location}, #{BotStatus}, #{DepositoryID})
     </insert>
 
     <delete id="deleteBot">

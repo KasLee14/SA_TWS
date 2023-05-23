@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:mysql:///tws
-    username: root
-    password: 686868
+    username: root  #写自己的数据库用户名
+    password: 686868  #写自己的数据库密码
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:

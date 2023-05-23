@@ -13,6 +13,17 @@ create table depository
         primary key
 );
 
+create table request
+(
+    RequestID           char(30) not null
+        primary key,
+    RequestUserID       char(30) not null,
+    RequestType         char(30) not null,
+    RequestTargetToolID char(30) not null,
+    RequestTargetNum    int      not null,
+    RequestResult       int      not null
+);
+
 create table shelf
 (
     ShelfID      char(30) not null

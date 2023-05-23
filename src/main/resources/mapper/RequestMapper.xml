@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sa.tws.mapper.RequestMapper">
+    <select id="findAll" resultType="Request">
+        select * from Request
+    </select>
+
+    <select id="findRequest" resultType="Request">
+        select * from Request where RequestID = #{RequestID}
+    </select>
+
+    <insert id="insertRequest">
+        insert into Request values (#{RequestID}, #{RequestUserID}, #{RequestType}, #{RequestTargetToolID}, #{RequestTargetNum}, #{RequestResult})
+    </insert>
+
+    <delete id="deleteRequest">
+        delete from Request where RequestID = #{RequestID}
+    </delete>
+
+    <update id="updateUserID">
+        update Request set RequestUserID = #{arg1} where RequestID = #{arg0}
+    </update>
+
+    <update id="updateRequestType">
+        update Request set RequestType = #{arg1} where RequestID = #{arg0}
+    </update>
+
+    <update id="updateTargetToolID">
+        update Request set RequestTargetToolID = #{arg1} where RequestID = #{arg0}
+    </update>
+
+    <update id="updateTargetNum">
+        update Request set RequestTargetNum = #{arg1} where RequestID = #{arg0}
+    </update>
+
+    <update id="updateResult">
+        update Request set RequestResult = #{arg1} where RequestID = #{arg0}
+    </update>
+</mapper>

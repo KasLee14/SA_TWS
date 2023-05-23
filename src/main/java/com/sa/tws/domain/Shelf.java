@@ -3,6 +3,7 @@ package com.sa.tws.domain;
 public class Shelf {
 
     public String ShelfID;
+
     public String DepositoryID;
     public String Location;
 
