@@ -1,6 +1,7 @@
 package com.sa.tws.service;
 
 import com.sa.tws.domain.Request;
+import com.sa.tws.domain.Request;
 import com.sa.tws.mapper.RequestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,13 +13,12 @@ public class RequestService {
     @Autowired
     public RequestMapper RequestMapper;
 
-    public void SaveOrUpdate(Request request){
-        if(request.getRequestID() == null){
-            RequestMapper.insertRequest(request);
-        }
-        else{
-            RequestMapper.updateRequest(request);
-        }
+    public void insert(Request request){
+        RequestMapper.insertRequest(request);
+    }
+
+    public void update(Request request){
+        RequestMapper.updateRequest(request);
     }
 
     public void delete(String RequestID){

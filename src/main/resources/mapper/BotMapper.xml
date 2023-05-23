@@ -18,7 +18,7 @@
     </delete>
 
     <update id="updateBot">
-        update Bot set BotID = #{BotID}, BotLocation = #{Location}, BotStatus = #{BotStatus}, DepositoryID = #{DepositoryID} where BotID = #{BotID0}
+        update Bot set BotID = #{BotID}, Location = #{Location}, BotStatus = #{BotStatus}, DepositoryID = #{DepositoryID} where BotID = #{BotID}
     </update>
 
 

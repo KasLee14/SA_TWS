@@ -1,6 +1,7 @@
 package com.sa.tws.controller;
 
 import com.sa.tws.domain.Tool;
+import com.sa.tws.domain.Tool;
 import com.sa.tws.service.ToolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ public class ToolController {
     private ToolService toolService;
 
     //查询全部
-    @GetMapping("/Tool/findAll/")
+    @GetMapping("/Tool/findAll")
     public List<Tool> index(){
         return toolService.findAll();
     }
@@ -26,9 +27,14 @@ public class ToolController {
 
 
     //有则插入新数据无则更新
-    @PostMapping("/Tool/SaveOrUpdate/")
+    @PostMapping("/Tool/Insert")
+    public void insertTool(@RequestBody Tool tool){
+        toolService.insert(tool);
+    }
+
+    @PostMapping("/Tool/Update")
     public void updateTool(@RequestBody Tool tool){
-        toolService.SaveOrUpdate(tool);
+        toolService.update(tool);
     }
 
     //删除

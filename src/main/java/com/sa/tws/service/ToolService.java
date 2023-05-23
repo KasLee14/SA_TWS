@@ -1,6 +1,7 @@
 package com.sa.tws.service;
 
 import com.sa.tws.domain.Tool;
+import com.sa.tws.domain.Tool;
 import com.sa.tws.mapper.ToolMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,13 +14,12 @@ public class ToolService {
     @Autowired
     public ToolMapper toolMapper;
 
-    public void SaveOrUpdate(Tool tool){
-        if(tool.getToolID() == null){
-            toolMapper.insertTool(tool);
-        }
-        else{
-            toolMapper.updateTool(tool);
-        }
+    public void insert(Tool tool){
+        toolMapper.insertTool(tool);
+    }
+
+    public void update(Tool tool){
+        toolMapper.updateTool(tool);
     }
 
     public void delete(String ToolID){

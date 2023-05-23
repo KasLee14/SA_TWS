@@ -1,7 +1,6 @@
 package com.sa.tws.domain;
 
 public class Bot {
-
     public String BotID;
     public String Location;
     public int BotStatus;

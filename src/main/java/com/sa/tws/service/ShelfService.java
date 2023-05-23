@@ -11,29 +11,28 @@ import java.util.List;
 public class ShelfService {
 
     @Autowired
-    public ShelfMapper ShelfMapper;
+    public ShelfMapper shelfMapper;
 
-    public void SaveOrUpdate(Shelf shelf){
-        if(shelf.getShelfID() == null){
-            ShelfMapper.insertShelf(shelf);
-        }
-        else{
-            ShelfMapper.updateShelf(shelf);
-        }
+    public void insert(Shelf shelf){
+        shelfMapper.insertShelf(shelf);
+    }
+
+    public void update(Shelf shelf){
+        shelfMapper.updateShelf(shelf);
     }
 
     public void delete(String ShelfID){
-        ShelfMapper.deleteShelf(ShelfID);
+        shelfMapper.deleteShelf(ShelfID);
     }
 
     public List<Shelf> findAll(){
-        List<Shelf> list = ShelfMapper.findAll();
+        List<Shelf> list = shelfMapper.findAll();
         return list;
 
     }
 
     public List<Shelf> findShelf(String ShelfID){
-        List<Shelf> list = ShelfMapper.findShelf(ShelfID);
+        List<Shelf> list = shelfMapper.findShelf(ShelfID);
         return list;
     }
 

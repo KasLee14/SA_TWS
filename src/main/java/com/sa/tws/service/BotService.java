@@ -11,29 +11,28 @@ import java.util.List;
 public class BotService {
     
     @Autowired
-    public com.sa.tws.mapper.BotMapper BotMapper;
+    public BotMapper botMapper;
 
-    public void SaveOrUpdate(Bot bot){
-        if(bot.getBotID() == null){
-            BotMapper.insertBot(bot);
-        }
-        else{
-            BotMapper.updateBot(bot);
-        }
+    public void insert(Bot bot){
+        botMapper.insertBot(bot);
+    }
+
+    public void update(Bot bot){
+        botMapper.updateBot(bot);
     }
 
     public void delete(String BotID){
-        BotMapper.deleteBot(BotID);
+        botMapper.deleteBot(BotID);
     }
 
     public List<Bot> findAll(){
-        List<Bot> list = BotMapper.findAll();
+        List<Bot> list = botMapper.findAll();
         return list;
 
     }
 
     public List<Bot> findBot(String BotID){
-        List<Bot> list = BotMapper.findBot(BotID);
+        List<Bot> list = botMapper.findBot(BotID);
         return list;
     }
 

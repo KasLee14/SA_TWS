@@ -1,6 +1,7 @@
 package com.sa.tws.controller;
 
 import com.sa.tws.domain.Request;
+import com.sa.tws.domain.Request;
 import com.sa.tws.service.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ public class RequestController {
     private RequestService requestService;
 
     //查询全部
-    @GetMapping("/Request/findAll/")
+    @GetMapping("/Request/findAll")
     public List<Request> index(){
         return requestService.findAll();
     }
@@ -27,9 +28,14 @@ public class RequestController {
 
 
     //有则插入新数据无则更新
-    @PostMapping("/Request/SaveOrUpdate/")
+    @PostMapping("/Request/Insert")
+    public void insertRequest(@RequestBody Request request){
+        requestService.insert(request);
+    }
+
+    @PostMapping("/Request/Update")
     public void updateRequest(@RequestBody Request request){
-        requestService.SaveOrUpdate(request);
+        requestService.update(request);
     }
 
     //删除

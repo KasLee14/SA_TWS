@@ -1,6 +1,7 @@
 package com.sa.tws.controller;
 
 import com.sa.tws.domain.Depository;
+import com.sa.tws.domain.Depository;
 import com.sa.tws.service.DepositoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ public class DepositoryController {
     private DepositoryService depositoryService;
 
     //查询全部
-    @GetMapping("/Depository/findAll/")
+    @GetMapping("/Depository/findAll")
     public List<Depository> index(){
         return depositoryService.findAll();
     }
@@ -27,9 +28,14 @@ public class DepositoryController {
 
 
     //有则插入新数据无则更新
-    @PostMapping("/Depository/SaveOrUpdate/")
+    @PostMapping("/Depository/Insert")
+    public void insertDepository(@RequestBody Depository depository){
+        depositoryService.insert(depository);
+    }
+
+    @PostMapping("/Depository/Update")
     public void updateDepository(@RequestBody Depository depository){
-        depositoryService.SaveOrUpdate(depository);
+        depositoryService.update(depository);
     }
 
     //删除

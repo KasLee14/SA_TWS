@@ -8,3 +8,6 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml #Mapper映射文件路径
   type-aliases-package: com.sa.tws.domain #别名
+
+server:
+  port: 8090

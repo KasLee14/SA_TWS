@@ -11,29 +11,28 @@ import java.util.List;
 public class DepositoryService {
     
     @Autowired
-    public DepositoryMapper DepositoryMapper;
+    public DepositoryMapper depositoryMapper;
 
-    public void SaveOrUpdate(Depository depository){
-        if(depository.getDepositoryID() == null){
-            DepositoryMapper.insertDepository(depository);
-        }
-        else{
-            DepositoryMapper.updateDepository(depository);
-        }
+    public void insert(Depository depository){
+        depositoryMapper.insertDepository(depository);
+    }
+
+    public void update(Depository depository){
+        depositoryMapper.updateDepository(depository);
     }
 
     public void delete(String DepositoryID){
-        DepositoryMapper.deleteDepository(DepositoryID);
+        depositoryMapper.deleteDepository(DepositoryID);
     }
 
     public List<Depository> findAll(){
-        List<Depository> list = DepositoryMapper.findAll();
+        List<Depository> list = depositoryMapper.findAll();
         return list;
 
     }
 
     public List<Depository> findDepository(String DepositoryID){
-        List<Depository> list = DepositoryMapper.findDepository(DepositoryID);
+        List<Depository> list = depositoryMapper.findDepository(DepositoryID);
         return list;
     }
 }

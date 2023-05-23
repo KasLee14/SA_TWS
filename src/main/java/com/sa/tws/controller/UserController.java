@@ -19,7 +19,7 @@ public class UserController {
     private UserService userService;
 
     //登录
-    @PostMapping("/User/login/")
+    @PostMapping("/User/login")
     public boolean login(@RequestBody UserDTO userDTO){
         String userName = userDTO.getUserName();
         String userPassword = userDTO.getUserPassword();
@@ -30,7 +30,7 @@ public class UserController {
     }
 
     //查询全部
-    @GetMapping("/User/findAll/")
+    @GetMapping("/User/findAll")
     public List<User> index(){
         return userService.findAll();
     }
@@ -42,10 +42,14 @@ public class UserController {
     }
 
 
-    //有则插入新数据无则更新
-    @PostMapping("/User/SaveOrUpdate/")
+    @PostMapping("/User/Insert")
+    public void insertUser(@RequestBody User user){
+        userService.insert(user);
+    }
+
+    @PostMapping("/User/Update")
     public void updateUser(@RequestBody User user){
-        userService.SaveOrUpdate(user);
+        userService.update(user);
     }
 
     //删除

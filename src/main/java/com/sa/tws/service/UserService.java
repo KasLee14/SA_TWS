@@ -13,17 +13,15 @@ import static com.baomidou.mybatisplus.extension.toolkit.Db.getOne;
 
 @Service
 public class UserService {
-
     @Autowired
     public UserMapper userMapper;
 
-    public void SaveOrUpdate(User user){
-        if(user.getUserID() == null){
-            userMapper.insertUser(user);
-        }
-        else{
-            userMapper.updateUser(user);
-        }
+    public void insert(User user){
+        userMapper.insertUser(user);
+    }
+
+    public void update(User user){
+        userMapper.updateUser(user);
     }
 
     public void delete(String UserID){

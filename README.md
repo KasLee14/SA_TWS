@@ -116,7 +116,7 @@ WMS系统中包括一个Manage类。Manage类负责管理仓库中工具信息�
 
 WMS系统中包括一个Shelf类。Shelf类中基本信息包括ShelfID（每个货架的唯一标识，字符串）、ShelfDepository（每个货架所属的仓库的ID，字符串）、Location（货架位置，字符串）。
 
-WMS系统中包括一个Depository类。Depository类中基本信息包括DepositoryID（仓库名称，字符串）。
+WMS系统中包括一个Depository类。Depository类中基本信息包括DepositoryID（仓库唯一标识，字符串）、DepositoryName（仓库名称，字符串）。
 
 
 
@@ -178,6 +178,6 @@ TWS系统项目中包括User、Tool、Bot、Shelf、Depository、Request六张�
 
 表Shelf中包括ShelfID（字符串）、DepositoryID（字符串）、Location（字符串）。其中ShelfID为主码。
 
-表Depository中包括DepositoryID（字符串）。其中DepositoryID为主码。
+表Depository中包括DepositoryID（字符串）、DepositoryName（字符串）。其中DepositoryID为主码。
 
 表Request中包括RequestID（字符串）、RequestUserID（字符串）、RequestType（字符串）、RequestTargetToolID（字符串）、RequestTargetNum（整型）、RequestResult（整型）。其中RequestID为主码。
