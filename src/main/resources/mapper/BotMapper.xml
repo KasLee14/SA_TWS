@@ -17,17 +17,10 @@
         delete from Bot where BotID = #{BotID}
     </delete>
 
-    <update id="updateBotLocation">
-        update Bot set BotLocation = #{arg1} where BotID = #{arg0}
+    <update id="updateBot">
+        update Bot set BotID = #{BotID}, BotLocation = #{Location}, BotStatus = #{BotStatus}, DepositoryID = #{DepositoryID} where BotID = #{BotID0}
     </update>
 
-    <update id="updateDepositoryID">
-        update Bot set DepositoryID = #{arg1} where BotID = #{arg0}
-    </update>
-
-    <update id="updateBotStatus">
-        update Bot set BotStatus = #{arg1} where BotID = #{arg0}
-    </update>
 
 
 </mapper>

@@ -17,8 +17,6 @@ public interface UserMapper {
 
     public void deleteUser(String UserID); //通过UserID删除对应用户
 
-    public void updateUserName(String UserID, String UserName);
-    public void updateUserPassword(String UserID, String UserPassword);
-    public void updateUserDepartment(String UserID, String UserDepartment);
+    public void updateUser(User user);
 
 }

@@ -42,8 +42,5 @@ class TwsApplicationTests {
         userMapper.deleteUser("123");
     }
 
-    @Test
-    public void testUpdateUserPassword(){
-        userMapper.updateUserPassword("114", "123");
-    }
+
 }

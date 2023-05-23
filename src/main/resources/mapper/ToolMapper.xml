@@ -17,19 +17,8 @@
         delete from Tool where ToolID = #{ToolID}
     </delete>
 
-    <update id="updateToolName">
-        update Tool set ToolName = #{arg1} where ToolID = #{arg0}
+    <update id="updateTool">
+        update Tool set ToolName = #{ToolName}, ToolType = #{ToolType}, DepositoryID = #{DepositoryID}, ShelfID = #{ShelfID}, ToolNum = #{ToolNum} where ToolID = #{ToolID}
     </update>
 
-    <update id="updateDepositoryID">
-        update Tool set DepositoryID = #{arg1} where ToolID = #{arg0}
-    </update>
-
-    <update id="updateToolNum">
-        update Tool set ToolNum = #{arg1} where ToolID = #{arg0}
-    </update>
-
-    <update id="updateShelfID">
-        update Tool set ShelfID = #{arg1} where ToolID = #{arg0}
-    </update>
 </mapper>

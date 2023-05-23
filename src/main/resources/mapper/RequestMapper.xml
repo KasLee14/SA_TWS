@@ -21,19 +21,8 @@
         update Request set UserID = #{arg1} where RequestID = #{arg0}
     </update>
 
-    <update id="updateRequestType">
-        update Request set RequestType = #{arg1} where RequestID = #{arg0}
+    <update id="updateRequest">
+        update Request set RequestType = #{RequestType}, UserID = #{UserID}, ToolID = #{ToolID}, RequestTargetNum = #{RequestTargetNum}, RequestResult = #{RequestResult} where RequestID = #{RequestID}
     </update>
 
-    <update id="updateTargetToolID">
-        update Request set ToolID = #{arg1} where RequestID = #{arg0}
-    </update>
-
-    <update id="updateTargetNum">
-        update Request set RequestTargetNum = #{arg1} where RequestID = #{arg0}
-    </update>
-
-    <update id="updateResult">
-        update Request set RequestResult = #{arg1} where RequestID = #{arg0}
-    </update>
 </mapper>

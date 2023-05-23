@@ -17,9 +17,7 @@ public interface BotMapper {
 
     public void deleteBot(String BotID); //通过UserID删除对应用户
 
-    public void updateBotName(String BotID, String BotName);
-    public void updateBotLocation(String BotID, String Location);
-    public void updateBotStatus(String BotID, int BotStatus);
-    public void updateDepositoryID(String BotID, String DepositoryID);
+    public void updateBot(Bot bot);
+
     
 }

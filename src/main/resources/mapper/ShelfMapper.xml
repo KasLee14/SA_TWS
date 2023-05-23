@@ -17,11 +17,8 @@
         delete from Shelf where ShelfID = #{ShelfID}
     </delete>
 
-    <update id="updateDepositoryID">
-        update Shelf set DepositoryID = #{arg1} where ShelfID = #{arg0}
+    <update id="updateShelf">
+        update Shelf set DepositoryID = #{DepositoryID}, Location = #{Location} where ShelfID = #{ShelfID}
     </update>
 
-    <update id="updateLocation">
-        update Shelf set Location = #{arg1} where ShelfID = #{arg0}
-    </update>
 </mapper>

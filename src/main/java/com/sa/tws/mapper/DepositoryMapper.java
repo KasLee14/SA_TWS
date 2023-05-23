@@ -13,9 +13,11 @@ public interface DepositoryMapper {
 
     public List<Depository> findDepository(String DepositoryID); //查询单一
 
-    public void insertDepository(Depository depository); //添加用户
+    public void insertDepository(Depository depository);
 
-    public void deleteDepository(String DepositoryID); //通过DepositoryID删除对应用户
+    public void deleteDepository(String DepositoryID);
+
+
     
 
 }

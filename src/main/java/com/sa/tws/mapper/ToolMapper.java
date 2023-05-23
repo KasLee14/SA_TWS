@@ -17,9 +17,7 @@ public interface ToolMapper {
 
     public void deleteTool(String ToolID); //通过ToolID删除对应用户
 
-    public void updateToolName(String ToolID, String ToolName);
-    public void updateToolNum(String ToolID, int ToolNum);
-    public void updateDepositoryID(String ToolID, String DepositoryID);
-    public void updateShelfID(String ToolID, String ShelfID);
+    public void updateTool(Tool tool);
+
 
 }
