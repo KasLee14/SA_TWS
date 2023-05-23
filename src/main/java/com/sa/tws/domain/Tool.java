@@ -7,14 +7,13 @@ public class Tool {
     public String ToolType;
     public String DepositoryID;
     public String ShelfID;
-
     public int ToolNum;
 
-    public Tool(String toolID, String toolName, String toolType, String DepositoryID, String shelfID, int toolNum) {
+    public Tool(String toolID, String toolName, String toolType, String depositoryID, String shelfID, int toolNum) {
         ToolID = toolID;
         ToolName = toolName;
         ToolType = toolType;
-        DepositoryID = DepositoryID;
+        DepositoryID = depositoryID;
         ShelfID = shelfID;
         ToolNum = toolNum;
     }
@@ -47,8 +46,8 @@ public class Tool {
         return DepositoryID;
     }
 
-    public void setDepositoryID(String DepositoryID) {
-        DepositoryID = DepositoryID;
+    public void setDepositoryID(String depositoryID) {
+        DepositoryID = depositoryID;
     }
 
     public String getShelfID() {

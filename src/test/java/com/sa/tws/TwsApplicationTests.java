@@ -33,7 +33,7 @@ class TwsApplicationTests {
 
     @Test
     public void testInsertTool(){
-        Tool tool = new Tool("123", "SS", "132", "123", "23", 120);
+        Tool tool = new Tool("1222333", "SS", "132", "12323123", "23", 120);
         toolMapper.insertTool(tool);
     }
 
