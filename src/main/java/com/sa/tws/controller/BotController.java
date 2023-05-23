@@ -1,6 +1,7 @@
 package com.sa.tws.controller;
 
 import com.sa.tws.domain.Bot;
+import com.sa.tws.service.BotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,30 +11,30 @@ import java.util.List;
 public class BotController {
 
     @Autowired
-    private com.sa.tws.mapper.BotMapper botMapper;
+    private BotService botService;
 
+    //查询全部
     @GetMapping("/Bot/findAll/")
     public List<Bot> index(){
-        return botMapper.findAll();
+        return botService.findAll();
     }
 
+    //通过ID特定查询
     @GetMapping("/Bot/findBot/{BotID}")
     public List<Bot> index(@PathVariable String BotID){
-        return botMapper.findBot(BotID);
+        return botService.findBot(BotID);
     }
 
-    @PostMapping("/Bot/Update/")
+
+    //有则插入新数据无则更新
+    @PostMapping("/Bot/SaveOrUpdate/")
     public void updateBot(@RequestBody Bot bot){
-        botMapper.updateBot(bot);
+        botService.SaveOrUpdate(bot);
     }
 
-    @PostMapping("/Bot/Insert/")
-    public void insert(@RequestBody Bot bot){
-        botMapper.insertBot(bot);
-    }
-
-    @DeleteMapping("/Bot/Delete{BotID}")
+    //删除
+    @DeleteMapping("/Bot/Delete/{BotID}")
     public void delete(@PathVariable String BotID){
-        botMapper.deleteBot(BotID);
+        botService.delete(BotID);
     }
 }

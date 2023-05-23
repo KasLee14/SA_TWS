@@ -36,7 +36,7 @@ public class UserController {
     }
 
     //通过ID特定查询
-    @GetMapping("/User/findUser/#{UserID}")
+    @GetMapping("/User/findUser/{UserID}")
     public List<User> index(@PathVariable String UserID){
         return userService.findUser(UserID);
     }

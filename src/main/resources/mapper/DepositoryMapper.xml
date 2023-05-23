@@ -11,8 +11,12 @@
     </select>
 
     <insert id="insertDepository">
-        insert into Depository values (#{DepositoryID})
+        insert into Depository values (#{DepositoryID}, #{DepositoryName})
     </insert>
+
+    <update id="updateDepository">
+        insert into Depository values (#{DepositoryID}, #{DepositoryName})
+    </update>
 
     <delete id="deleteDepository">
         delete from Depository where DepositoryID = #{DepositoryID}

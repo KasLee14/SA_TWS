@@ -9,8 +9,9 @@ create table bot
 
 create table depository
 (
-    DepositoryID char(30) not null
-        primary key
+    DepositoryID   char(30) not null
+        primary key,
+    DepositoryName char(30) not null
 );
 
 create table request

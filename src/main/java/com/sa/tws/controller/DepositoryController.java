@@ -1,6 +1,7 @@
 package com.sa.tws.controller;
 
 import com.sa.tws.domain.Depository;
+import com.sa.tws.service.DepositoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,26 +11,30 @@ import java.util.List;
 public class DepositoryController {
 
     @Autowired
-    private com.sa.tws.mapper.DepositoryMapper depositoryMapper;
+    private DepositoryService depositoryService;
 
+    //查询全部
     @GetMapping("/Depository/findAll/")
     public List<Depository> index(){
-        return depositoryMapper.findAll();
+        return depositoryService.findAll();
     }
 
+    //通过ID特定查询
     @GetMapping("/Depository/findDepository/{DepositoryID}")
     public List<Depository> index(@PathVariable String DepositoryID){
-        return depositoryMapper.findDepository(DepositoryID);
+        return depositoryService.findDepository(DepositoryID);
     }
 
 
-    @PostMapping("/Depository/Insert/")
-    public void insert(@RequestBody Depository depository){
-        depositoryMapper.insertDepository(depository);
+    //有则插入新数据无则更新
+    @PostMapping("/Depository/SaveOrUpdate/")
+    public void updateDepository(@RequestBody Depository depository){
+        depositoryService.SaveOrUpdate(depository);
     }
 
-    @DeleteMapping("/{DepositoryID}")
+    //删除
+    @DeleteMapping("/Depository/Delete/{DepositoryID}")
     public void delete(@PathVariable String DepositoryID){
-        depositoryMapper.deleteDepository(DepositoryID);
+        depositoryService.delete(DepositoryID);
     }
 }

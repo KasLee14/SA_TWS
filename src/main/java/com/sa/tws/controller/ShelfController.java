@@ -1,6 +1,7 @@
 package com.sa.tws.controller;
 
 import com.sa.tws.domain.Shelf;
+import com.sa.tws.service.ShelfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,31 +11,31 @@ import java.util.List;
 public class ShelfController {
 
     @Autowired
-    private com.sa.tws.mapper.ShelfMapper shelfMapper;
+    private ShelfService shelfService;
 
+    //查询全部
     @GetMapping("/Shelf/findAll/")
     public List<Shelf> index(){
-        return shelfMapper.findAll();
+        return shelfService.findAll();
     }
 
+    //通过ID特定查询
     @GetMapping("/Shelf/findShelf/{ShelfID}")
     public List<Shelf> index(@PathVariable String ShelfID){
-        return shelfMapper.findShelf(ShelfID);
+        return shelfService.findShelf(ShelfID);
     }
 
-    @PostMapping("/Shelf/Update/")
+
+    //有则插入新数据无则更新
+    @PostMapping("/Shelf/SaveOrUpdate/")
     public void updateShelf(@RequestBody Shelf shelf){
-        shelfMapper.updateShelf(shelf);
+        shelfService.SaveOrUpdate(shelf);
     }
 
-    @PostMapping("/Shelf/Insert/")
-    public void insert(@RequestBody Shelf Shelf){
-        shelfMapper.insertShelf(Shelf);
-    }
-
+    //删除
     @DeleteMapping("/Shelf/Delete/{ShelfID}")
     public void delete(@PathVariable String ShelfID){
-        shelfMapper.deleteShelf(ShelfID);
+        shelfService.delete(ShelfID);
     }
     
 }

@@ -1,6 +1,7 @@
 package com.sa.tws.controller;
 
 import com.sa.tws.domain.Request;
+import com.sa.tws.service.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,30 +11,30 @@ import java.util.List;
 public class RequestController {
 
     @Autowired
-    private com.sa.tws.mapper.RequestMapper requestMapper;
+    private RequestService requestService;
 
+    //查询全部
     @GetMapping("/Request/findAll/")
     public List<Request> index(){
-        return requestMapper.findAll();
+        return requestService.findAll();
     }
 
+    //通过ID特定查询
     @GetMapping("/Request/findRequest/{RequestID}")
     public List<Request> index(@PathVariable String RequestID){
-        return requestMapper.findRequest(RequestID);
+        return requestService.findRequest(RequestID);
     }
 
-    @PostMapping("/Request/Update/")
+
+    //有则插入新数据无则更新
+    @PostMapping("/Request/SaveOrUpdate/")
     public void updateRequest(@RequestBody Request request){
-        requestMapper.updateRequest(request);
+        requestService.SaveOrUpdate(request);
     }
 
-    @PostMapping("/Request/Insert/")
-    public void insert(@RequestBody Request Request){
-        requestMapper.insertRequest(Request);
-    }
-
+    //删除
     @DeleteMapping("/Request/Delete/{RequestID}")
     public void delete(@PathVariable String RequestID){
-        requestMapper.deleteRequest(RequestID);
+        requestService.delete(RequestID);
     }
 }

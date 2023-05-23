@@ -2,6 +2,7 @@ package com.sa.tws.mapper;
 
 import com.sa.tws.domain.Depository;
 import com.sa.tws.domain.Depository;
+import com.sa.tws.domain.Request;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public interface DepositoryMapper {
 
     public void deleteDepository(String DepositoryID);
 
+    public void updateDepository(Depository depository);
 
-    
 
 }

@@ -1,7 +1,7 @@
 package com.sa.tws.controller;
 
 import com.sa.tws.domain.Tool;
-import com.sa.tws.mapper.ToolMapper;
+import com.sa.tws.service.ToolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,30 +10,30 @@ import java.util.List;
 @RestController
 public class ToolController {
     @Autowired
-    private ToolMapper toolMapper;
+    private ToolService toolService;
 
-    @GetMapping("/Tool/findAll")
+    //查询全部
+    @GetMapping("/Tool/findAll/")
     public List<Tool> index(){
-        return toolMapper.findAll();
+        return toolService.findAll();
     }
 
-    @GetMapping("/Tool/findTool/Shelf{ToolID}")
+    //通过ID特定查询
+    @GetMapping("/Tool/findTool/{ToolID}")
     public List<Tool> index(@PathVariable String ToolID){
-        return toolMapper.findTool(ToolID);
+        return toolService.findTool(ToolID);
     }
 
-    @PostMapping("/Tool/Update/")
-    public void updateTool(@RequestBody Tool Tool){
-        toolMapper.updateTool(Tool);
+
+    //有则插入新数据无则更新
+    @PostMapping("/Tool/SaveOrUpdate/")
+    public void updateTool(@RequestBody Tool tool){
+        toolService.SaveOrUpdate(tool);
     }
 
-    @PostMapping("/Tool/Insert/")
-    public void insert(@RequestBody Tool Tool){
-        toolMapper.insertTool(Tool);
-    }
-
+    //删除
     @DeleteMapping("/Tool/Delete/{ToolID}")
     public void delete(@PathVariable String ToolID){
-        toolMapper.deleteTool(ToolID);
+        toolService.delete(ToolID);
     }
 }
