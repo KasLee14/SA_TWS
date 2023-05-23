@@ -15,13 +15,13 @@ create table depository
 
 create table request
 (
-    RequestID           char(30) not null
+    RequestID        char(30) not null
         primary key,
-    RequestUserID       char(30) not null,
-    RequestType         char(30) not null,
-    RequestTargetToolID char(30) not null,
-    RequestTargetNum    int      not null,
-    RequestResult       int      not null
+    UserID           char(30) not null,
+    RequestType      char(30) not null,
+    ToolID           char(30) not null,
+    RequestTargetNum int      not null,
+    RequestResult    int      not null
 );
 
 create table shelf

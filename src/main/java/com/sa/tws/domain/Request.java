@@ -4,17 +4,17 @@ package com.sa.tws.domain;
 public class Request {
 
     public String RequestID;
-    public String RequestUserID;
+    public String UserID;
     public String RequestType;
-    public String RequestTargetToolID;
+    public String ToolID;
     public int RequestTargetNum;
     public int RequestResult;
 
-    public Request(String requestID, String requestUserID, String requestType, String requestTargetToolID, int requestTargetNum, int requestResult) {
+    public Request(String requestID, String userID, String requestType, String toolID, int requestTargetNum, int requestResult) {
         RequestID = requestID;
-        RequestUserID = requestUserID;
+        UserID = userID;
         RequestType = requestType;
-        RequestTargetToolID = requestTargetToolID;
+        ToolID = toolID;
         RequestTargetNum = requestTargetNum;
         RequestResult = requestResult;
     }
@@ -27,12 +27,12 @@ public class Request {
         RequestID = requestID;
     }
 
-    public String getRequestUserID() {
-        return RequestUserID;
+    public String getUserID() {
+        return UserID;
     }
 
-    public void setRequestUserID(String requestUserID) {
-        RequestUserID = requestUserID;
+    public void setUserID(String userID) {
+        UserID = userID;
     }
 
     public String getRequestType() {
@@ -43,12 +43,12 @@ public class Request {
         RequestType = requestType;
     }
 
-    public String getRequestTargetToolID() {
-        return RequestTargetToolID;
+    public String getToolID() {
+        return ToolID;
     }
 
-    public void setRequestTargetToolID(String requestTargetToolID) {
-        RequestTargetToolID = requestTargetToolID;
+    public void setToolID(String toolID) {
+        ToolID = toolID;
     }
 
     public int getRequestTargetNum() {
@@ -71,9 +71,9 @@ public class Request {
     public String toString() {
         return "Request{" +
                 "RequestID='" + RequestID + '\'' +
-                ", RequestUserID='" + RequestUserID + '\'' +
+                ", UserID='" + UserID + '\'' +
                 ", RequestType='" + RequestType + '\'' +
-                ", RequestTargetToolID='" + RequestTargetToolID + '\'' +
+                ", ToolID='" + ToolID + '\'' +
                 ", RequestTargetNum=" + RequestTargetNum +
                 ", RequestResult=" + RequestResult +
                 '}';

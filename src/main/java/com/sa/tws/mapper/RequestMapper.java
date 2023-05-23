@@ -16,9 +16,9 @@ public interface RequestMapper {
 
     public void deleteRequest(String RequestID);
 
-    public void updateUserID(String RequestID, String RequestUserID);
+    public void updateUserID(String RequestID, String UserID);
     public void updateType(String RequestID, int RequestType);
-    public void updateTargetToolID(String RequestID, String TargetToolID);
+    public void updateTargetToolID(String RequestID, String ToolID);
     public void updateTargetNum(String RequestID, int TargetNum);
     public void updateResult(String RequestID, int RequestResult);
     

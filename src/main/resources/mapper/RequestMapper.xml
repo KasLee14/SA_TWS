@@ -10,7 +10,7 @@
     </select>
 
     <insert id="insertRequest">
-        insert into Request values (#{RequestID}, #{RequestUserID}, #{RequestType}, #{RequestTargetToolID}, #{RequestTargetNum}, #{RequestResult})
+        insert into Request values (#{RequestID}, #{UserID}, #{RequestType}, #{ToolID}, #{RequestTargetNum}, #{RequestResult})
     </insert>
 
     <delete id="deleteRequest">
@@ -18,7 +18,7 @@
     </delete>
 
     <update id="updateUserID">
-        update Request set RequestUserID = #{arg1} where RequestID = #{arg0}
+        update Request set UserID = #{arg1} where RequestID = #{arg0}
     </update>
 
     <update id="updateRequestType">
@@ -26,7 +26,7 @@
     </update>
 
     <update id="updateTargetToolID">
-        update Request set RequestTargetToolID = #{arg1} where RequestID = #{arg0}
+        update Request set ToolID = #{arg1} where RequestID = #{arg0}
     </update>
 
     <update id="updateTargetNum">
