@@ -43,8 +43,12 @@ public class UserService {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("UserName", userDTO.getUserName());
         queryWrapper.eq("UserPassword", userDTO.getUserPassword());
-        User one = getOne(queryWrapper);
-        return one != null;
+        try {
+            User one = getOne(queryWrapper);
+            return one != null;
+        } catch (Exception e){
+            return false;
+        }
 
     }
 }
