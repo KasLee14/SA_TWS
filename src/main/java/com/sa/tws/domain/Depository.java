@@ -11,6 +11,9 @@ public class Depository {
         DepositoryName = depositoryName;
     }
 
+    public Depository() {
+    }
+
     public String getDepositoryID() {
         return DepositoryID;
     }

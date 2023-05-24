@@ -67,6 +67,9 @@ public class Request {
         RequestResult = requestResult;
     }
 
+    public Request() {
+    }
+
     @Override
     public String toString() {
         return "Request{" +

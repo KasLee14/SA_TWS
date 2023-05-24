@@ -13,6 +13,9 @@ public class Bot {
         DepositoryID = depositoryID;
     }
 
+    public Bot() {
+    }
+
     public String getBotID() {
         return BotID;
     }

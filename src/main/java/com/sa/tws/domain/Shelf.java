@@ -37,6 +37,9 @@ public class Shelf {
         Location = location;
     }
 
+    public Shelf() {
+    }
+
     @Override
     public String toString() {
         return "Shelf{" +

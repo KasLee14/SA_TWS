@@ -16,6 +16,9 @@ public class User {
         UserDepartment = userDepartment;
     }
 
+    public User() {
+    }
+
     public String getUserID() {
         return UserID;
     }

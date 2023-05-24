@@ -18,6 +18,9 @@ public class Tool {
         ToolNum = toolNum;
     }
 
+    public Tool() {
+    }
+
     public String getToolID() {
         return ToolID;
     }
