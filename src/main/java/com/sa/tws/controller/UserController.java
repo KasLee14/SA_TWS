@@ -41,13 +41,17 @@ public class UserController {
     //通过ID特定查询
     @GetMapping("/User/findUser/{UserID}")
     public List<User> index(@PathVariable String UserID){
+        System.out.println(userService.findUser(UserID));
         return userService.findUser(UserID);
     }
 
 
     @PostMapping("/User/Insert")
     public void insertUser(@RequestBody User user){
-        userService.insert(user);
+        if(userService.findUser(user.getUserID()).isEmpty()){
+            userService.insert(user);
+        }
+
     }
 
     @PostMapping("/User/Update")

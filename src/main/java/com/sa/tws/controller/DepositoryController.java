@@ -32,7 +32,9 @@ public class DepositoryController {
     //有则插入新数据无则更新
     @PostMapping("/Depository/Insert")
     public void insertDepository(@RequestBody Depository depository){
-        depositoryService.insert(depository);
+        if(depositoryService.findDepository(depository.getDepositoryID()).isEmpty()){
+            depositoryService.insert(depository);
+        }
     }
 
     @PostMapping("/Depository/Update")
@@ -41,7 +43,7 @@ public class DepositoryController {
     }
 
     //删除
-    @DeleteMapping("/Depository/Delete/{DepositoryID}")
+    @PostMapping("/Depository/Delete/{DepositoryID}")
     public void delete(@PathVariable String DepositoryID){
         depositoryService.delete(DepositoryID);
     }

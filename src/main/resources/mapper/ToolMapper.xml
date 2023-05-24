@@ -10,7 +10,7 @@
     </select>
 
     <insert id="insertTool">
-        insert into Tool values (#{ToolID}, #{ToolName}, #{ToolType}, #{DepositoryID}, #{ShelfID}, #{ToolNum})
+        insert into Tool values (#{ToolID}, #{ToolName}, #{ToolType}, #{DepositoryID}, #{ShelfID}, ${ToolNum})
     </insert>
 
     <delete id="deleteTool">

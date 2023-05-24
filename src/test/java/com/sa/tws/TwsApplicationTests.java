@@ -1,5 +1,6 @@
 package com.sa.tws;
 
+import com.sa.tws.controller.UserController;
 import com.sa.tws.domain.Bot;
 import com.sa.tws.domain.Tool;
 import com.sa.tws.domain.User;
@@ -21,18 +22,43 @@ class TwsApplicationTests {
     private UserService userService;
 
     @Autowired
+    private UserController userController;
+    @Autowired
     private BotService botService;
 
 
-
-
     @Test
-    public void testUpdateuser(){
-        User bot = new User("121", "pcs", "pcs", "2","C3");
-        userService.update(bot);
+    public void testFindAll() {
+        List<User> list = userService.findAll();
+        System.out.println(list);
+    }
+    @Test
+    public void testFindAllB() {
+        List<Bot> list = botService.findBot("33");
+        System.out.println(list);
+    }
+    @Test
+    public void testFindUser() {
+        List<User> list = userService.findUser("114");
+        System.out.println(list);
     }
 
+    @Test
+    public void testUpdateUser(){
+        User bot = new User("1143", "243243", "123", "542", null);
+        userController.insertUser(bot);
+    }
 
+    @Test
+    public void testInsertBot(){
+        Bot bot = new Bot("114", "23", 1, "542");
+        botService.insert(bot);
+    }
+
+    @Test
+    public void testDeleteID(){
+        userService.delete("114");
+    }
 
 
 }

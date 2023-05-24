@@ -32,7 +32,9 @@ public class RequestController {
     //有则插入新数据无则更新
     @PostMapping("/Request/Insert")
     public void insertRequest(@RequestBody Request request){
-        requestService.insert(request);
+        if(requestService.findRequest(request.getRequestID()).isEmpty()){
+            requestService.insert(request);
+        }
     }
 
     @PostMapping("/Request/Update")
@@ -41,7 +43,7 @@ public class RequestController {
     }
 
     //删除
-    @DeleteMapping("/Request/Delete/{RequestID}")
+    @PostMapping("/Request/Delete/{RequestID}")
     public void delete(@PathVariable String RequestID){
         requestService.delete(RequestID);
     }

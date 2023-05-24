@@ -10,7 +10,7 @@
     </select>
 
     <insert id="insertRequest">
-        insert into Request values (#{RequestID}, #{UserID}, #{RequestType}, #{ToolID}, #{RequestTargetNum}, #{RequestResult})
+        insert into Request values (#{RequestID}, #{UserID}, #{RequestType}, #{ToolID}, ${RequestTargetNum}, ${RequestResult})
     </insert>
 
     <delete id="deleteRequest">
