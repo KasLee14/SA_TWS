@@ -30,7 +30,9 @@ public class BotController {
     //有则插入新数据无则更新
     @PostMapping("/Bot/Insert")
     public void insertBot(@RequestBody Bot bot){
-        botService.insert(bot);
+        if(botService.findBot(bot.getBotID()).isEmpty()){
+            botService.insert(bot);
+        }
     }
 
     @PostMapping("/Bot/Update")
@@ -38,7 +40,7 @@ public class BotController {
         botService.update(bot);
     }
     //删除
-    @DeleteMapping("/Bot/Delete/{BotID}")
+    @PostMapping("/Bot/Delete/{BotID}")
     public void delete(@PathVariable String BotID){
         botService.delete(BotID);
     }

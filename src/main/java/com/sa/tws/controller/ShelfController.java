@@ -30,7 +30,10 @@ public class ShelfController {
     //有则插入新数据无则更新
     @PostMapping("/Shelf/Insert")
     public void insertShelf(@RequestBody Shelf shelf){
-        shelfService.insert(shelf);
+
+        if(shelfService.findShelf(shelf.getShelfID()).isEmpty()){
+            shelfService.insert(shelf);
+        }
     }
 
     @PostMapping("/Shelf/Update")
@@ -39,7 +42,7 @@ public class ShelfController {
     }
 
     //删除
-    @DeleteMapping("/Shelf/Delete/{ShelfID}")
+    @PostMapping("/Shelf/Delete/{ShelfID}")
     public void delete(@PathVariable String ShelfID){
         shelfService.delete(ShelfID);
     }

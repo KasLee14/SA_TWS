@@ -29,7 +29,9 @@ public class ToolController {
     //有则插入新数据无则更新
     @PostMapping("/Tool/Insert")
     public void insertTool(@RequestBody Tool tool){
-        toolService.insert(tool);
+        if(toolService.findTool(tool.getToolID()).isEmpty()){
+            toolService.insert(tool);
+        }
     }
 
     @PostMapping("/Tool/Update")
@@ -38,7 +40,7 @@ public class ToolController {
     }
 
     //删除
-    @DeleteMapping("/Tool/Delete/{ToolID}")
+    @PostMapping("/Tool/Delete/{ToolID}")
     public void delete(@PathVariable String ToolID){
         toolService.delete(ToolID);
     }
