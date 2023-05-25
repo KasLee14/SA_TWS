@@ -5,10 +5,12 @@ import com.sa.tws.domain.Depository;
 import com.sa.tws.service.DepositoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class DepositoryController {
 
     @Autowired
@@ -30,9 +32,7 @@ public class DepositoryController {
     //有则插入新数据无则更新
     @PostMapping("/Depository/Insert")
     public void insertDepository(@RequestBody Depository depository){
-        if(depositoryService.findDepository(depository.getDepositoryID()).isEmpty()){
-            depositoryService.insert(depository);
-        }
+        depositoryService.insert(depository);
     }
 
     @PostMapping("/Depository/Update")
@@ -41,7 +41,7 @@ public class DepositoryController {
     }
 
     //删除
-    @PostMapping("/Depository/Delete/{DepositoryID}")
+    @DeleteMapping("/Depository/Delete/{DepositoryID}")
     public void delete(@PathVariable String DepositoryID){
         depositoryService.delete(DepositoryID);
     }

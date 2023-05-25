@@ -10,7 +10,6 @@ public class Depository {
         DepositoryID = depositoryID;
         DepositoryName = depositoryName;
     }
-
     public Depository() {
     }
 

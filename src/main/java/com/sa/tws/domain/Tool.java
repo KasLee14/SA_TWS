@@ -17,7 +17,6 @@ public class Tool {
         ShelfID = shelfID;
         ToolNum = toolNum;
     }
-
     public Tool() {
     }
 

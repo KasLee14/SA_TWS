@@ -66,7 +66,6 @@ public class Request {
     public void setRequestResult(int requestResult) {
         RequestResult = requestResult;
     }
-
     public Request() {
     }
 

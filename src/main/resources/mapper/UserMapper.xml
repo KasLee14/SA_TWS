@@ -18,13 +18,7 @@
     </delete>
 
     <update id="updateUser">
-        update User
-        <set>
-            UserName = #{UserName}, UserPassword = #{UserPassword}, UserType = #{UserType}, UserDepartment = #{UserDepartment}
-        </set>
-        <where>
-            UserID = #{UserID}
-        </where>
+        update User set UserName = #{UserName}, UserPassword = #{UserPassword}, UserType = #{UserType}, UserDepartment = #{UserDepartment} where UserID = #{UserID}
     </update>
 
 

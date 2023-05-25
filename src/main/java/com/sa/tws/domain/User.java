@@ -15,8 +15,8 @@ public class User {
         UserType = userType;
         UserDepartment = userDepartment;
     }
+    public User(){
 
-    public User() {
     }
 
     public String getUserID() {
@@ -70,3 +70,4 @@ public class User {
                 '}';
     }
 }
+

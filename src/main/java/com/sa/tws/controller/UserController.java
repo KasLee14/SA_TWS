@@ -8,15 +8,18 @@ import com.sa.tws.mapper.UserMapper;
 import com.sa.tws.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import java.awt.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class UserController {
 
     @Autowired
     private UserService userService;
+
+
 
     //登录
     @PostMapping("/User/login")
@@ -38,17 +41,13 @@ public class UserController {
     //通过ID特定查询
     @GetMapping("/User/findUser/{UserID}")
     public List<User> index(@PathVariable String UserID){
-        System.out.println(userService.findUser(UserID));
         return userService.findUser(UserID);
     }
 
 
     @PostMapping("/User/Insert")
     public void insertUser(@RequestBody User user){
-        if(userService.findUser(user.getUserID()).isEmpty()){
-            userService.insert(user);
-        }
-
+        userService.insert(user);
     }
 
     @PostMapping("/User/Update")

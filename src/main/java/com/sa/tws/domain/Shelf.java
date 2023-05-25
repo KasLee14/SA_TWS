@@ -36,7 +36,6 @@ public class Shelf {
         DepositoryID = depositoryID;
         Location = location;
     }
-
     public Shelf() {
     }
 

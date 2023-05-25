@@ -5,10 +5,12 @@ import com.sa.tws.domain.Shelf;
 import com.sa.tws.service.ShelfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class ShelfController {
 
     @Autowired
@@ -30,10 +32,7 @@ public class ShelfController {
     //有则插入新数据无则更新
     @PostMapping("/Shelf/Insert")
     public void insertShelf(@RequestBody Shelf shelf){
-
-        if(shelfService.findShelf(shelf.getShelfID()).isEmpty()){
-            shelfService.insert(shelf);
-        }
+        shelfService.insert(shelf);
     }
 
     @PostMapping("/Shelf/Update")
@@ -42,7 +41,7 @@ public class ShelfController {
     }
 
     //删除
-    @PostMapping("/Shelf/Delete/{ShelfID}")
+    @DeleteMapping("/Shelf/Delete/{ShelfID}")
     public void delete(@PathVariable String ShelfID){
         shelfService.delete(ShelfID);
     }

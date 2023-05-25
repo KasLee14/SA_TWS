@@ -5,10 +5,12 @@ import com.sa.tws.domain.Bot;
 import com.sa.tws.service.BotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class BotController {
 
     @Autowired
@@ -30,9 +32,7 @@ public class BotController {
     //有则插入新数据无则更新
     @PostMapping("/Bot/Insert")
     public void insertBot(@RequestBody Bot bot){
-        if(botService.findBot(bot.getBotID()).isEmpty()){
-            botService.insert(bot);
-        }
+        botService.insert(bot);
     }
 
     @PostMapping("/Bot/Update")
@@ -40,8 +40,10 @@ public class BotController {
         botService.update(bot);
     }
     //删除
-    @PostMapping("/Bot/Delete/{BotID}")
+    @DeleteMapping("/Bot/Delete/{BotID}")
     public void delete(@PathVariable String BotID){
         botService.delete(BotID);
     }
 }
+
+

@@ -5,10 +5,12 @@ import com.sa.tws.domain.Tool;
 import com.sa.tws.service.ToolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class ToolController {
     @Autowired
     private ToolService toolService;
@@ -29,9 +31,7 @@ public class ToolController {
     //有则插入新数据无则更新
     @PostMapping("/Tool/Insert")
     public void insertTool(@RequestBody Tool tool){
-        if(toolService.findTool(tool.getToolID()).isEmpty()){
-            toolService.insert(tool);
-        }
+        toolService.insert(tool);
     }
 
     @PostMapping("/Tool/Update")
@@ -40,7 +40,7 @@ public class ToolController {
     }
 
     //删除
-    @PostMapping("/Tool/Delete/{ToolID}")
+    @DeleteMapping("/Tool/Delete/{ToolID}")
     public void delete(@PathVariable String ToolID){
         toolService.delete(ToolID);
     }

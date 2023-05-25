@@ -12,9 +12,9 @@ public class Bot {
         BotStatus = botStatus;
         DepositoryID = depositoryID;
     }
-
     public Bot() {
     }
+
 
     public String getBotID() {
         return BotID;
