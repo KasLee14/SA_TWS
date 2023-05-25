@@ -1,7 +1,9 @@
 package com.sa.tws.controller;
 
+import com.sa.tws.domain.Request;
 import com.sa.tws.domain.Tool;
 import com.sa.tws.domain.Tool;
+import com.sa.tws.service.RequestService;
 import com.sa.tws.service.ToolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,9 @@ import java.util.List;
 public class ToolController {
     @Autowired
     private ToolService toolService;
+
+    @Autowired
+    private RequestService requestService;
 
     //查询全部
     @GetMapping("/Tool/findAll")
@@ -46,4 +51,7 @@ public class ToolController {
     public void delete(@PathVariable String ToolID){
         toolService.delete(ToolID);
     }
+
+
+
 }

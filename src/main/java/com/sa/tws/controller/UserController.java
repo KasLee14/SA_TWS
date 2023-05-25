@@ -24,9 +24,9 @@ public class UserController {
     //登录
     @PostMapping("/User/login")
     public boolean login(@RequestBody UserDTO userDTO){
-        String userName = userDTO.getUserName();
+        String userID = userDTO.getUserID();
         String userPassword = userDTO.getUserPassword();
-        if(StrUtil.isBlank(userName) || StrUtil.isBlank(userPassword)){
+        if(StrUtil.isBlank(userID) || StrUtil.isBlank(userPassword)){
             return false;
         }
         return userService.login(userDTO);

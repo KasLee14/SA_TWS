@@ -3,7 +3,7 @@ import lombok.Data;
 
 @Data
 public class UserDTO {
-    private String UserName;
+    private String UserID;
     private String UserPassword;
 
 }

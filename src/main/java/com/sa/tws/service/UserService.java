@@ -40,15 +40,10 @@ public class UserService {
     }
 
     public boolean login(UserDTO userDTO){
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("UserName", userDTO.getUserName());
-        queryWrapper.eq("UserPassword", userDTO.getUserPassword());
-        try {
-            User one = getOne(queryWrapper);
-            return one != null;
-        } catch (Exception e){
-            return false;
-        }
+        String UserID = userDTO.getUserID();
+        String UserPassword = userDTO.getUserPassword();
+        User user = userMapper.findUser(UserID).get(0);
+        return user.getUserPassword().equals(UserPassword);
 
     }
 }
