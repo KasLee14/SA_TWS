@@ -52,7 +52,7 @@ class TwsApplicationTests {
     @Test
     public void testLogin(){
         UserDTO userDTO = new UserDTO();
-        userDTO.setUserName("243243");
+        userDTO.setUserID("1143");
         userDTO.setUserPassword("123");
         System.out.println(userController.login(userDTO));
     }

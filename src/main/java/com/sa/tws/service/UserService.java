@@ -42,8 +42,13 @@ public class UserService {
     public boolean login(UserDTO userDTO){
         String UserID = userDTO.getUserID();
         String UserPassword = userDTO.getUserPassword();
-        User user = userMapper.findUser(UserID).get(0);
-        return user.getUserPassword().equals(UserPassword);
-
+        List<User> list = userMapper.findUser(UserID);
+        System.out.println(list);
+        try{
+            User user = list.get(0);
+            return user.getUserPassword().equals(UserPassword);
+        }catch(Exception e){
+            return false;
+        }
     }
 }
