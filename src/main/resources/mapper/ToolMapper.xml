@@ -21,4 +21,12 @@
         update Tool set ToolName = #{ToolName}, ToolType = #{ToolType}, DepositoryID = #{DepositoryID}, ShelfID = #{ShelfID}, ToolNum = #{ToolNum} where ToolID = #{ToolID}
     </update>
 
+    <select id="selectPage">
+        select * from Tool where ToolName like #{arg2} limit #{arg0}, #{arg1}
+    </select>
+
+    <select id="selectTotal">
+        select count(*) from Tool where ToolName like #{ToolName}
+    </select>
+
 </mapper>

@@ -13,10 +13,13 @@ public interface UserMapper {
 
     public List<User> findUser(String UserID); //查询单一
 
-    public void insertUser(User user); //添加用户
+    public int insertUser(User user); //添加用户
 
-    public void deleteUser(String UserID); //通过UserID删除对应用户
+    public Integer deleteUser(String UserID); //通过UserID删除对应用户
 
-    public void updateUser(User user);
+    public Integer updateUser(User user);
 
+    public List<User> selectPage(Integer pageNum, Integer pageSize, String UserName);
+
+    public Integer selectTotal(String UserName);
 }

@@ -16,16 +16,19 @@ public class UserService {
     @Autowired
     public UserMapper userMapper;
 
-    public void insert(User user){
-        userMapper.insertUser(user);
+
+    public int save(User user){
+        String userID = user.getUserID();
+        if(!userMapper.findUser(userID).isEmpty()){
+            return userMapper.updateUser(user);
+        }
+        else{
+            return userMapper.insertUser(user);
+        }
     }
 
-    public void update(User user){
-        userMapper.updateUser(user);
-    }
-
-    public void delete(String UserID){
-        userMapper.deleteUser(UserID);
+    public Integer delete(String UserID){
+        return userMapper.deleteUser(UserID);
     }
 
     public List<User> findAll(){
@@ -43,11 +46,17 @@ public class UserService {
         String UserID = userDTO.getUserID();
         String UserPassword = userDTO.getUserPassword();
         List<User> list = userMapper.findUser(UserID);
-        System.out.println(list);
+        System.out.println(userDTO);
         try{
             User user = list.get(0);
-            return user.getUserPassword().equals(UserPassword);
+            String pw = user.getUserPassword();
+            if(pw.equals(UserPassword)){
+                if(user.getUserType().equals("Admin")){
+                    return true;
+                }else return false;
+            }else return false;
         }catch(Exception e){
+            System.out.println("Error");
             return false;
         }
     }

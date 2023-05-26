@@ -18,8 +18,8 @@ public class ToolService {
         toolMapper.insertTool(tool);
     }
 
-    public void update(Tool tool){
-        toolMapper.updateTool(tool);
+    public boolean update(Tool tool){
+        return toolMapper.updateTool(tool);
     }
 
     public void delete(String ToolID){

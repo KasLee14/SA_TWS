@@ -27,6 +27,13 @@
         </where>
     </update>
 
+    <select id="selectPage">
+        select * from User where UserName like #{arg2} limit #{arg0}, #{arg1}
+    </select>
+
+    <select id="selectTotal">
+        select count(*) from User where UserName like #{UserName}
+    </select>
 
 
 </mapper>

@@ -25,4 +25,12 @@
         update Request set RequestType = #{RequestType}, UserID = #{UserID}, ToolID = #{ToolID}, RequestTargetNum = #{RequestTargetNum}, RequestResult = #{RequestResult} where RequestID = #{RequestID}
     </update>
 
+    <select id="selectPage">
+        select * from Request where ToolID like #{arg2} limit #{arg0}, #{arg1}
+    </select>
+
+    <select id="selectTotal">
+        select count(*) from Request where ToolID like ToolID
+    </select>
+
 </mapper>

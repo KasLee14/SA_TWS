@@ -1,6 +1,7 @@
 package com.sa.tws.mapper;
 
 import com.sa.tws.domain.Request;
+import com.sa.tws.domain.Tool;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -12,10 +13,14 @@ public interface RequestMapper {
 
     public List<Request> findRequest(String RequestID);
 
-    public void insertRequest(Request request);
+    public Boolean insertRequest(Request request);
 
-    public void deleteRequest(String RequestID);
+    public Boolean deleteRequest(String RequestID);
 
-    public void updateRequest(Request request);
+    public Boolean updateRequest(Request request);
+
+    public List<Request> selectPage(Integer pageNum, Integer pageSize, String ToolID);
+
+    public Integer selectTotal(String ToolID);
 
 }

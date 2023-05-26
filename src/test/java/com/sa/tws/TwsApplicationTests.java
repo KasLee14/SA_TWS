@@ -1,6 +1,7 @@
 package com.sa.tws;
 
 import com.sa.tws.controller.RequestController;
+import com.sa.tws.controller.ToolController;
 import com.sa.tws.controller.UserController;
 import com.sa.tws.controller.dto.UserDTO;
 import com.sa.tws.domain.Bot;
@@ -17,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 class TwsApplicationTests {
@@ -26,6 +28,9 @@ class TwsApplicationTests {
 
     @Autowired
     private UserController userController;
+
+    @Autowired
+    private ToolController toolController;
 
     @Autowired
     private RequestController requestController;
@@ -38,6 +43,25 @@ class TwsApplicationTests {
         List<User> list = userService.findAll();
         System.out.println(list);
     }
+
+
+    @Test
+    public void testPage() {
+        Map<String, Object> list= requestController.findPage(1,4);
+        System.out.println(list);
+    }
+
+    @Test
+    public void testUpdateTool(){
+        Tool tool = new Tool("3",
+                "光刻机",
+                "Expensive Tool",
+               "4",
+                "55",
+                200);
+        System.out.println(toolController.updateTool(tool));
+    }
+
     @Test
     public void testFindAllB() {
         List<Bot> list = botService.findBot("33");
@@ -45,23 +69,20 @@ class TwsApplicationTests {
     }
     @Test
     public void testFindUser() {
-        List<User> list = userService.findUser("114");
-        System.out.println(list);
+        List<User> list = userService.findUser("0");
+        System.out.println(list.get(0).getUserPassword());
     }
 
     @Test
     public void testLogin(){
         UserDTO userDTO = new UserDTO();
-        userDTO.setUserID("1143");
-        userDTO.setUserPassword("123");
+        userDTO.setUserID("sq");
+        userDTO.setUserPassword("sq");
         System.out.println(userController.login(userDTO));
     }
 
-    @Test
-    public void testUpdateUser(){
-        User bot = new User("1143", "243243", "123", "542", null);
-        userController.insertUser(bot);
-    }
+
+
 
     @Test
     public void testInsertBot(){
@@ -69,11 +90,6 @@ class TwsApplicationTests {
         botService.insert(bot);
     }
 
-    @Test
-    public void testInsertRequest(){
-        Request request = new Request("123", "12", "3", "444", 1, 1);
-        requestController.insertRequest(request);
-    }
 
     @Test
     public void testDeleteID(){

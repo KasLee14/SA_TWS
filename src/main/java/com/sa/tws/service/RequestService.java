@@ -11,28 +11,32 @@ import java.util.List;
 @Service
 public class RequestService {
     @Autowired
-    public RequestMapper RequestMapper;
+    public RequestMapper requestMapper;
 
-    public void insert(Request request){
-        RequestMapper.insertRequest(request);
+    public Boolean save(Request request){
+        String requestID = request.getRequestID();
+        if(!requestMapper.findRequest(requestID).isEmpty()){
+            return requestMapper.updateRequest(request);
+        }
+        else{
+            return requestMapper.insertRequest(request);
+        }
     }
 
-    public void update(Request request){
-        RequestMapper.updateRequest(request);
-    }
 
-    public void delete(String RequestID){
-        RequestMapper.deleteRequest(RequestID);
+
+    public Boolean delete(String RequestID){
+        return requestMapper.deleteRequest(RequestID);
     }
 
     public List<Request> findAll(){
-        List<Request> list = RequestMapper.findAll();
+        List<Request> list = requestMapper.findAll();
         return list;
 
     }
 
     public List<Request> findRequest(String RequestID){
-        List<Request> list = RequestMapper.findRequest(RequestID);
+        List<Request> list = requestMapper.findRequest(RequestID);
         return list;
     }
     

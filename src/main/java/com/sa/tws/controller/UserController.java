@@ -6,63 +6,59 @@ import com.sa.tws.domain.Shelf;
 import com.sa.tws.domain.User;
 import com.sa.tws.mapper.UserMapper;
 import com.sa.tws.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import java.awt.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
-@CrossOrigin
+@RequestMapping("/User")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-
+    @Autowired
+    private UserMapper userMapper;
 
     //登录
-    @PostMapping("/User/login")
+    @PostMapping("/login")
     public boolean login(@RequestBody UserDTO userDTO){
-        String userID = userDTO.getUserID();
-        String userPassword = userDTO.getUserPassword();
-        if(StrUtil.isBlank(userID) || StrUtil.isBlank(userPassword)){
-            return false;
-        }
         return userService.login(userDTO);
     }
 
     //查询全部
-    @GetMapping("/User/findAll")
+    @GetMapping
     public List<User> index(){
-        return userService.findAll();
+        List<User> list = userMapper.findAll();
+        return list;
     }
 
-    //通过ID特定查询
-    @GetMapping("/User/findUser/{UserID}")
-    public List<User> index(@PathVariable String UserID){
-        System.out.println(userService.findUser(UserID));
-        return userService.findUser(UserID);
-    }
-
-
-    @PostMapping("/User/Insert")
-    public void insertUser(@RequestBody User user){
-        if(userService.findUser(user.getUserID()).isEmpty()){
-            userService.insert(user);
-        }
-
-    }
-
-    @PostMapping("/User/Update")
-    public void updateUser(@RequestBody User user){
-        userService.update(user);
+    @PostMapping
+    public int updateUser(@RequestBody User user){
+        return userService.save(user);
     }
 
     //删除
-    @PostMapping("/User/Delete/{UserID}")
+    @DeleteMapping("/{UserID}")
     public void delete(@PathVariable String UserID){
         userService.delete(UserID);
+    }
+
+    @GetMapping("/Page")
+    public Map<String, Object> findPage(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam String UserName){
+        pageNum = (pageNum - 1) * pageSize;
+        UserName = "%" + UserName + "%";
+        List<User> data = userMapper.selectPage(pageNum, pageSize, UserName);
+        Integer total = userMapper.selectTotal(UserName);
+        Map<String, Object> res = new HashMap<>();
+        res.put("data", data);
+        res.put("total", total);
+        return res;
     }
 
 }
